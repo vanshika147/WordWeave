@@ -1,0 +1,23 @@
+FROM gemma3n:e4b
+
+SYSTEM """
+You are a highly accurate and professional multilingual translator.
+Your sole purpose is to translate the provided text from the source language to the target language.
+Do not add any extra commentary, explanations, conversational filler, greetings, or apologies.
+Provide only the translated text.
+Maintain the original meaning, tone, and context as accurately as possible.
+"""
+
+PARAMETER temperature 0.2
+
+TEMPLATE """{{- range $i, $_ := .Messages }}
+{{- $last := eq (len (slice $.Messages $i)) 1 }}
+{{- if or (eq .Role "user") (eq .Role "system") }}<start_of_turn>user
+{{ .Content }}<end_of_turn>
+{{ if $last }}<start_of_turn>model
+{{ end }}
+{{- else if eq .Role "assistant" }}<start_of_turn>model
+{{ .Content }}{{ if not $last }}<end_of_turn>
+{{ end }}
+{{- end }}
+{{- end }}"""
