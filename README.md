@@ -8,13 +8,13 @@ WordWeave is a robust multilingual AI translator leveraging local Ollama LLMs, l
 Built with a high-performance **FastAPI** backend to handle intensive processing and a responsive **Gradio** frontend for user interaction, WordWeave provides a comprehensive and efficient translation experience powered entirely by your local machine.
 
 ## 📂 Project Structure
-
 .
-├── fastapi_backend.py              # FastAPI Backend: Handles LLM integration, OCR, PDF, STT, TTS, APIs.
-├── gradio_frontend.py              # Gradio Frontend: User interface, handles user input and displays output.
-├── GemmaModelFile                  # Ollama Modelfile for creating the custom 'Gemma_Translator' LLM.
-├── requirements.txt                # Python package dependencies.
-└── README.md                       # This README file.
+├── fastapi_backend.py       # FastAPI backend: LLM integration, OCR, PDF, STT, TTS, APIs.
+├── gradio_frontend.py       # Gradio frontend: User interface, handles user input/output.
+├── GemmaModelFile           # Ollama Modelfile to build the custom 'Gemma_Translator' model.
+├── requirements.txt         # Python package dependencies.
+└── README.md                # Project documentation.
+
 
 ## ✨ Key Features
 
